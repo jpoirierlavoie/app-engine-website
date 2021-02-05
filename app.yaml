@@ -1,0 +1,102 @@
+service: default
+runtime: python37
+instance_class: B1
+basic_scaling:
+  max_instances: 10
+  idle_timeout: 10m
+default_expiration: "1d"
+
+handlers:
+
+  # webmanifest
+- url: /(.*\.webmanifest)
+  mime_type: application/manifest+json
+  static_files: www/\1
+  upload: www/(.*\.webmanifest)
+  expiration: "10m"
+
+  # fonts
+- url: /(.*\.(eot|svg|ttf|woff|woff2))
+  static_files: www/\1
+  upload: www/(.*\.(eot|svg|ttf|woff|woff2))
+  secure: always
+  expiration: "90d"
+  http_headers:
+    Cache-Control: public; max-age=7776000
+
+  # scripts
+- url: /(.*\.js)
+  mime_type: text/javascript
+  static_files: www/\1
+  upload: www/(.*\.js)
+  secure: always
+  expiration: "90d"
+  http_headers:
+    Cache-Control: public; max-age=7776000
+
+  # images
+- url: /(.*\.(bmp|gif|ico|jpeg|jpg|png))
+  static_files: www/\1
+  upload: www/(.*\.(bmp|gif|ico|jpeg|jpg|png))
+  secure: always
+  expiration: "30d"
+  http_headers:
+    Cache-Control: public; max-age=2592000
+
+  # stylesheets
+- url: /(.*\.css)
+  mime_type: text/css
+  static_files: www/\1
+  upload: www/(.*\.css)
+  secure: always
+  expiration: "1d"
+  http_headers:
+    Cache-Control: public; max-age=86400
+
+  # index
+- url: /
+  static_files: www/index.html
+  upload: www/index.html
+  secure: always
+  expiration: "1d"
+  redirect_http_response_code: 301
+  http_headers:
+    Strict-Transport-Security: max-age=31536000; includeSubDomains; preload
+    Cache-Control: public; max-age=86400
+    X-Frame-Options: deny
+    X-content-type-options: nosniff
+    X-xss-protection: 1; mode=block; report=https://jpoirierlavoie.report-uri.com/r/d/xss/enforce
+    Referrer-Policy: no-referrer
+    Feature-Policy: geolocation 'none'; microphone 'none'; camera 'none'
+    Expect-CT: max-age=31536000, enforce, report-uri="https://jpoirierlavoie.report-uri.com/r/d/ct/enforce"
+    Report-To: '{"group":"default","max_age":31536000,"endpoints":[{"url":"https://jpoirierlavoie.report-uri.com/a/d/g"}],"include_subdomains":true}'
+    NEL: '{"report_to":"default","max_age":31536000,"include_subdomains":true}'
+
+  # root
+- url: /(.*)
+  static_files: www/\1
+  upload: www/(.*)
+  secure: always
+  expiration: "1d"
+  redirect_http_response_code: 301
+  http_headers:
+    Strict-Transport-Security: max-age=31536000; includeSubDomains; preload
+    Cache-Control: public; max-age=86400
+    X-Frame-Options: deny
+    X-content-type-options: nosniff
+    X-xss-protection: 1; mode=block; report=https://jpoirierlavoie.report-uri.com/r/d/xss/enforce
+    Referrer-Policy: no-referrer
+    Feature-Policy: geolocation 'none'; microphone 'none'; camera 'none'
+    Expect-CT: max-age=31536000, enforce, report-uri="https://jpoirierlavoie.report-uri.com/r/d/ct/enforce"
+    Report-To: '{"group":"default","max_age":31536000,"endpoints":[{"url":"https://jpoirierlavoie.report-uri.com/a/d/g"}],"include_subdomains":true}'
+    NEL: '{"report_to":"default","max_age":31536000,"include_subdomains":true}'
+
+  # errors
+error_handlers:
+- error_code: over_quota
+  file: error.html
+- error_code: dos_api_denial
+  file: error.html
+- error_code: timeout
+  file: error.html
+- file: error.html

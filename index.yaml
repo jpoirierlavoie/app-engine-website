@@ -1,0 +1,13 @@
+indexes:
+
+- kind: BlogPost
+  ancestor: yes
+  properties:
+  - name: modifiedOn
+    direction: desc
+
+- kind: Comment
+  properties:
+  - name: blogPost
+  - name: createdOn
+    direction: desc

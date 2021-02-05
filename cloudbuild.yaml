@@ -1,0 +1,13 @@
+steps:
+- name: "gcr.io/cloud-builders/gcloud"
+  id: "Deploy Web App"
+  args:
+    [
+      "app",
+      "deploy",
+      "app.yaml",
+      "--bucket=gs://jpoirierlavoie.appspot.com",
+      "--promote",
+      "--stop-previous-version"
+    ]
+timeout: 180s
