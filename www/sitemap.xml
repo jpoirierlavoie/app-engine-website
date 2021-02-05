@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset
+      xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+            http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+<url>
+  <loc>https://jpoirierlavoie.ca/index.html</loc>
+  <lastmod>2020-01-26T10:14:55+00:00</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>1.00</priority>
+</url>
+<url>
+  <loc>https://jpoirierlavoie.ca/error.html</loc>
+  <lastmod>2020-01-26T10:14:55+00:00</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.10</priority>
+</url>
+<url>
+  <loc>https://jpoirierlavoie.ca/blog/canadian-military-justice-on-appeal.html</loc>
+  <lastmod>2020-01-26T10:14:55+00:00</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.50</priority>
+</url>
+</urlset>
