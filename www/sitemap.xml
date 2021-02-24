@@ -10,16 +10,4 @@
   <changefreq>weekly</changefreq>
   <priority>1.00</priority>
 </url>
-<url>
-  <loc>https://jpoirierlavoie.ca/error.html</loc>
-  <lastmod>2020-01-26T10:14:55+00:00</lastmod>
-  <changefreq>monthly</changefreq>
-  <priority>0.10</priority>
-</url>
-<url>
-  <loc>https://jpoirierlavoie.ca/blog/canadian-military-justice-on-appeal.html</loc>
-  <lastmod>2020-01-26T10:14:55+00:00</lastmod>
-  <changefreq>monthly</changefreq>
-  <priority>0.50</priority>
-</url>
 </urlset>
