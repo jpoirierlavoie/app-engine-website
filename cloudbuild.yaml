@@ -6,7 +6,7 @@ steps:
       "app",
       "deploy",
       "app.yaml",
-      "--bucket=gs://jpoirierlavoie.appspot.com",
+      "--bucket=gs://jpoirierlavoie-ca.appspot.com",
       "--promote",
       "--stop-previous-version"
     ]
