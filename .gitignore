@@ -4,3 +4,4 @@ __pycache__
 app_old.yaml
 index_old.html
 static_old
+service-worker_old.js
