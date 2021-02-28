@@ -1,2 +1,6 @@
-# Google App Engine generated folder
-appengine-generated/
+app2.yaml
+venv
+__pycache__
+app_old.yaml
+index_old.html
+static_old
