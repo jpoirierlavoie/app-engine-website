@@ -15,7 +15,7 @@ def add_security_headers(response):
     response.headers['X-Frame-Options']='DENY'
     response.headers['X-content-type-options']='nosniff'
     response.headers['Referrer-Policy']='no-referrer'
-    response.headers['Permissions-Policy']='geolocation (), microphone ()'
+    response.headers['Permissions-Policy']='geolocation=(), microphone=()'
     response.headers['X-xss-protection']='1; mode=block; report=https://jpoirierlavoie.report-uri.com/r/d/xss/enforce'
     response.headers['Strict-Transport-Security']='max-age=31536000; includeSubDomains; preload'
     response.headers['Expect-CT']='max-age=31536000, enforce, report-uri=\"https://jpoirierlavoie.report-uri.com/r/d/ct/enforce\"'
