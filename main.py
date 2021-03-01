@@ -18,7 +18,6 @@ def add_security_headers(response):
     response.headers['X-xss-protection']='1; mode=block; report=https://jpoirierlavoie.report-uri.com/r/d/xss/enforce'
     response.headers['Strict-Transport-Security']='max-age=31536000; includeSubDomains; preload'
     response.headers['Expect-CT']='max-age=31536000, enforce, report-uri=\"https://jpoirierlavoie.report-uri.com/r/d/ct/enforce\"'
-    response.headers['Content-Security-Policy']='default-src \'self\''
     return response
 
 @app.route('/')
