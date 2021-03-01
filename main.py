@@ -20,7 +20,7 @@ def add_security_headers(response):
     response.headers['Expect-CT']='max-age=31536000, enforce, report-uri=\"https://jpoirierlavoie.report-uri.com/r/d/ct/enforce\"'
     response.headers['Report-To']='{"group":"default","max_age":31536000,"endpoints":[{"url":"https://jpoirierlavoie.report-uri.com/a/d/g"}],"include_subdomains":true}'
     response.headers['NEL']='{"report_to":"default","max_age":31536000,"include_subdomains":true}'
-    response.headers['Content-Security-Policy-Report-Only']='default-src \'self\'; report-uri https://jpoirierlavoie.report-uri.com/r/d/csp/wizard'
+    response.headers['Content-Security-Policy-Report-Only']='default-src \'self\'; connect-src stats.g.doubleclick.net www.google-analytics.com northamerica-northeast1-jpoirierlavoie-ca.cloudfunctions.net; img-src www.google-analytics.com www.google.ca www.google.com; script-src-elem \'unsafe-inline\' www.google-analytics.com www.googletagmanager.com; style-src-elem \'unsafe-inline\'; report-uri https://jpoirierlavoie.report-uri.com/r/d/csp/wizard'
     return response
 
 @app.route('/')
