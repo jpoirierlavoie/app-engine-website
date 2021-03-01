@@ -1,5 +1,6 @@
 Flask==1.1.2
 google-cloud-datastore==2.1.0
+flask-talisman
 itsdangerous==1.1.0
 Jinja2==2.10.3
 Markdown==3.1.1

@@ -1,8 +1,7 @@
-from flask import Flask, render_template, url_for
+from flask import Flask, render_template, make_response
 from google.cloud import datastore
 
 app = Flask(__name__)
-app.config.from_object(__name__)
 
 datastore_client = datastore.Client()
 
@@ -11,8 +10,18 @@ def fetch_posts():
     posts = query.fetch()
     return posts
 
+@app.after_request
+def add_security_headers(response):
+    response.headers['X-Frame-Options']='DENY'
+    response.headers['X-content-type-options']='nosniff'
+    response.headers['Referrer-Policy']='no-referrer'
+    response.headers['X-xss-protection']='1; mode=block; report=https://jpoirierlavoie.report-uri.com/r/d/xss/enforce'
+    response.headers['Strict-Transport-Security']='max-age=31536000; includeSubDomains; preload'
+    response.headers['Expect-CT']='max-age=31536000, enforce, report-uri=\"https://jpoirierlavoie.report-uri.com/r/d/ct/enforce\"'
+    response.headers['Content-Security-Policy']='default-src \'self\''
+    return response
+
 @app.route('/')
-@app.route('/index')
 def index():
     posts = fetch_posts()
     return render_template('index.html', posts=posts)

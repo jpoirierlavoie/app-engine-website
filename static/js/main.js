@@ -38,7 +38,7 @@
 
         $('#contact_form').on('submit', function (e) {
             if (!e.isDefaultPrevented()) {
-                var url = "https://us-central1-jpoirierlavoie-ca-website.cloudfunctions.net/sendgrid-function";
+                var url = "https://northamerica-northeast1-jpoirierlavoie-ca.cloudfunctions.net/sendgrid";
 
                 $.ajax({
                     type: "POST",
@@ -153,7 +153,7 @@
             }
         });
 
-        
+
         $(".clients.owl-carousel").imagesLoaded().owlCarousel({
             nav: true, // Show next/prev buttons.
             items: 2, // The number of items you want to see on the screen.
