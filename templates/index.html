@@ -80,35 +80,32 @@
                       <div class="portfolio-content">
                         <ul class="portfolio-filters">
                           <li class="active">
-                            <a class="filter btn btn-sm btn-link" data-group="category_all">Tout</a>
+                            <a class="filter btn btn-sm btn-link" data-group="all">All</a>
                           </li>
                           <li>
-                            <a class="filter btn btn-sm btn-link" data-group="category_Revues">Revues</a>
+                            <a class="filter btn btn-sm btn-link" data-group="review">Reviews</a>
                           </li>
                           <li>
-                            <a class="filter btn btn-sm btn-link" data-group="category_Politique">Politique</a>
+                            <a class="filter btn btn-sm btn-link" data-group="politics">Politics</a>
                           </li>
                           <li>
-                            <a class="filter btn btn-sm btn-link" data-group="category_Affaires">Affaires</a>
+                            <a class="filter btn btn-sm btn-link" data-group="law">Law</a>
                           </li>
                           <li>
-                            <a class="filter btn btn-sm btn-link" data-group="category_Droit">Droit</a>
-                          </li>
-                          <li>
-                            <a class="filter btn btn-sm btn-link" data-group="category_Technologie">Technologie</a>
+                            <a class="filter btn btn-sm btn-link" data-group="tech">Tech</a>
                           </li>
                         </ul>
                         <!-- Portfolio Grid -->
                         <div class="portfolio-grid four-columns">
                           {% for post in posts %}
-                          <figure class="item standard" data-groups='["category_all", "category_{{ post.category }}"]'>
+                          <figure class="item standard" data-groups='["all", "{{ post.category }}"]'>
                             <div class="portfolio-item-img">
                               <picture>
                                 <source type="image/webp" srcset="../static/images/blog/{{ post.image }}.webp">
                                 <source type="image/jpeg" srcset="../static/images/blog/{{ post.image }}.jpg">
                                 <img src="../static/images/blog/{{ post.image }}.jpg" alt="TBD" title="TBD" />
                               </picture>
-                              <a href="{{ url_for('post', name=post.path.replace('posts/', '')) }}" ></a>
+                              <a href="TBD" ></a>
                             </div>
                             <i class="fa fa-file"></i>
                             <h4 class="name">{{ post.title }}</h4>
