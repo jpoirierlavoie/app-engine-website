@@ -1,7 +1,7 @@
 {
   "name":"Jason Poirier Lavoie",
   "short_name":"JPL",
-  "start_url":"index.html",
+  "start_url":"/",
   "dir": "ltr",
   "lang": "English",
   "orientation":"portrait",
