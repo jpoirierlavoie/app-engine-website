@@ -1,9 +1,10 @@
-import sys
 from flask import Flask, render_template, url_for
 from google.cloud import datastore
 
 app = Flask(__name__)
 app.config.from_object(__name__)
+
+datastore_client = datastore.Client()
 
 def fetch_posts():
     query = datastore_client.query(kind="posts")
@@ -13,7 +14,7 @@ def fetch_posts():
 @app.route('/')
 @app.route('/index')
 def index():
-    posts = fetch_posts
+    posts = fetch_posts()
     return render_template('index.html', posts=posts)
 
 @app.route('/manifest.webmanifest')
@@ -33,4 +34,4 @@ def sitemap():
     return app.send_static_file('sitemap.xml'), 200, {'Content-Type': 'text/xml; charset=utf-8'}
 
 if __name__ == "__main__":
-    app.run(host='0.0.0.0', debug=True)
+    app.run(host='127.0.0.1', port=5000, debug=True)
