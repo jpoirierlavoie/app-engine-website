@@ -1,4 +1,4 @@
-service: flask-application
+service: default
 runtime: python37
 default_expiration: "1d"
 
