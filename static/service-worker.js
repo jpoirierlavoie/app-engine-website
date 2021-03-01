@@ -4,8 +4,6 @@ console.log("WORKER: Executing.");
 
 var version = "v1::";
 var offlineFundamentals = [
-  "/css/main.css",
-  "/js/main.js"
 ];
 self.addEventListener("install", function(event) {
   console.log("WORKER: Install in progress.");
