@@ -1,13 +1,20 @@
 import sys
 from flask import Flask, render_template, url_for
+from google.cloud import datastore
 
 app = Flask(__name__)
 app.config.from_object(__name__)
 
+def fetch_posts():
+    query = datastore_client.query(kind="posts")
+    posts = query.fetch()
+    return posts
+
 @app.route('/')
 @app.route('/index')
 def index():
-    return render_template('index.html')
+    posts = fetch_posts
+    return render_template('index.html', posts=posts)
 
 @app.route('/manifest.webmanifest')
 def manifest():
