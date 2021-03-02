@@ -12,6 +12,7 @@ steps:
     "--plaintext-file=config.py"
     ]
   timeout: 60s
+- name: "gcr.io/cloud-builders/gcloud"
   id: "Deploy App Engine"
   waitFor:
     [
