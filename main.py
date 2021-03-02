@@ -1,4 +1,4 @@
-from flask import Flask, render_template, make_response
+from flask import Flask, render_template, url_for, make_response, redirect
 from google.cloud import datastore
 
 app = Flask(__name__)
