@@ -1,6 +1,22 @@
 steps:
 - name: "gcr.io/cloud-builders/gcloud"
-  id: "Deploy Web App"
+  id: "Decrypt Environment Variables"
+  args:
+    [
+    "kms",
+    "decrypt",
+    "--key=app-engine",
+    "--keyring=envvars",
+    "--location=northamerica-northeast1",
+    "--ciphertext-file=config.encrypted",
+    "--plaintext-file=config.py"
+    ]
+  timeout: 60s
+  id: "Deploy App Engine"
+  waitFor:
+    [
+    "Decrypt Environment Variables"
+    ]
   args:
     [
       "app",

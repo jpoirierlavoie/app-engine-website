@@ -1,7 +1,3 @@
-app2.yaml
 venv
 __pycache__
-app_old.yaml
-index_old.html
-static_old
-service-worker_old.js
+config.py
