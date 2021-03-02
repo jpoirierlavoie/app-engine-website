@@ -143,33 +143,60 @@
                         <div class="controls two-columns">
                           <div class="fields clearfix">
                             <div class="left-column">
-                              <div class="form-group form-group-with-icon">
-                                <input id="form_name" type="text" name="name" class="form-control" placeholder="Nom au complet" required="required" data-error="Name is required.">
-                                <div class="form-control-border"></div>
-                                <div class="help-block with-errors"></div>
-                              </div>
+                              <fieldset class="form-group">
+                                {{ form.name.label }}
+                                {{ form.name }}
+                                {% if form.name.errors %}
+                                  <ul class="errors">
+                                    {% for error in form.name.errors %}
+                                      <li>{{ error }}</li>
+                                    {% endfor %}
+                                  </ul>
+                                {% endif %}
+                              </fieldset>
 
-                              <div class="form-group form-group-with-icon">
-                                <input id="form_email" type="email" name="email" class="form-control" placeholder="Courriel" required="required" data-error="Valid email is required.">
-                                <div class="form-control-border"></div>
-                                <div class="help-block with-errors"></div>
-                              </div>
+                              <fieldset class="form-group">
+                                {{ form.email.label }}
+                                {{ form.email }}
+                                {% if form.email.errors %}
+                                  <ul class="errors">
+                                    {% for error in form.email.errors %}
+                                      <li>{{ error }}</li>
+                                    {% endfor %}
+                                  </ul>
+                                {% endif %}
+                              </fieldset>
 
-                              <div class="form-group form-group-with-icon">
-                                <input id="form_subject" type="text" name="subject" class="form-control" placeholder="Sujet" required="required" data-error="Subject is required.">
-                                <div class="form-control-border"></div>
-                                <div class="help-block with-errors"></div>
-                              </div>
+                              <fieldset class="form-group">
+                                {{ form.subject.label }}
+                                {{ form.subject }}
+                                {% if form.subject.errors %}
+                                  <ul class="errors">
+                                    {% for error in form.subject.errors %}
+                                      <li>{{ error }}</li>
+                                    {% endfor %}
+                                  </ul>
+                                {% endif %}
+                              </fieldset>
                             </div>
+
                             <div class="right-column">
-                              <div class="form-group form-group-with-icon">
-                                <textarea id="form_message" name="message" class="form-control" placeholder="Message" rows="7" required="required" data-error="Please, leave me a message."></textarea>
-                                <div class="form-control-border"></div>
-                                <div class="help-block with-errors"></div>
-                              </div>
+                              <fieldset class="form-group form-group-with-icon">
+                                {{ form.body.label }}
+                                {{ form.body }}
+                                {% if form.body.errors %}
+                                  <ul class="errors">
+                                    {% for error in form.body.errors %}
+                                      <li>{{ error }}</li>
+                                    {% endfor %}
+                                  </ul>
+                                {% endif %}
+                              </fieldset>
                             </div>
                           </div>
-                          <input type="submit" class="button btn-send" value="Envoyer ">
+                          {{ form.csrf_token }}
+                          {{ form.recaptcha }}
+                          {{ form.submit }}
                         </div>
                       </form>
                     </div>
