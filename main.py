@@ -31,10 +31,12 @@ def add_security_headers(response):
     response.headers['Content-Security-Policy']='default-src \'none\'; frame-src \'self\' www.google.com; connect-src \'self\' www.google.com stats.g.doubleclick.net www.google-analytics.com northamerica-northeast1-jpoirierlavoie-ca.cloudfunctions.net www.googletagmanager.com; img-src www.google-analytics.com www.google.ca www.google.com \'self\'; script-src-elem \'unsafe-inline\' www.gstatic.com www.google.com www.google-analytics.com www.googletagmanager.com \'self\'; style-src-elem \'unsafe-inline\' \'self\'; font-src \'self\'; manifest-src \'self\'; worker-src \'self\'; report-uri https://jpoirierlavoie.report-uri.com/r/d/csp/enforce'
     return response
 
-@app.route('/')
+@app.route('/', methods=['GET', 'POST'])
 def index():
     posts = fetch_posts()
     form = ContactForm()
+    if form.validate_on_submit():
+        return redirect('/')
     return render_template('home.html', posts=posts, form=form)
 
 @app.route('/manifest.webmanifest')
