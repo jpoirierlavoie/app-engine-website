@@ -39,6 +39,11 @@ def index():
         return redirect('/')
     return render_template('home.html', posts=posts, form=form)
 
+@app.route('/blog')
+def blog():
+    posts = fetch_posts()
+    return render_template('post.html', posts=posts)
+
 @app.route('/manifest.webmanifest')
 def manifest():
     return app.send_static_file('manifest.webmanifest'), 200, {'Content-Type': 'application/manifest+json'}
