@@ -6,7 +6,7 @@ class ContactForm(FlaskForm):
     name = StringField('Name',[DataRequired()])
     email = StringField('Email',[Email(message=('Not a valid email address.')),DataRequired()])
     subject = StringField('Subject',[DataRequired()])
-    body = TextAreaField('Message',[DataRequired(),Length(min=4,message=('Your message is too short.'))])
+    message = TextField('Message',[DataRequired(),Length(min=4,message=('Your message is too short.'))])
     recaptcha = RecaptchaField()
     submit = SubmitField('Submit')
 

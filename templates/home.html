@@ -182,11 +182,11 @@
 
                             <div class="right-column">
                               <fieldset class="form-group form-group-with-icon">
-                                {{ form.body.label }}
-                                {{ form.body }}
-                                {% if form.body.errors %}
+                                {{ form.message.label }}
+                                {{ form.message }}
+                                {% if form.message.errors %}
                                   <ul class="errors">
-                                    {% for error in form.body.errors %}
+                                    {% for error in form.message.errors %}
                                       <li>{{ error }}</li>
                                     {% endfor %}
                                   </ul>
